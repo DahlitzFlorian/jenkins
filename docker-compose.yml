@@ -2,7 +2,8 @@ version: '3'
 
 services:
   jenkins:
-    image: jenkins/jenkins:lts
+    build: ./
+    image: jenkins-custom
     restart: always
     ports:
       - "50000:50000"
