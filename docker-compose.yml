@@ -5,7 +5,6 @@ services:
     image: jenkins/jenkins:lts
     restart: always
     ports:
-      - "8080:8080"
       - "50000:50000"
     volumes:
       - jenkins_home:/var/jenkins_home
@@ -17,7 +16,7 @@ services:
       labels:
         - traefik.frontend.rule=Host:ci.${DOMAIN}
         - traefik.enable=true
-        - traefik.port=80
+        - traefik.port=8080
         - traefik.tags=traefik-public
         - traefik.docker.network=traefik-public
         - traefik.redirectorservice.frontend.entryPoints=http
